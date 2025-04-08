@@ -1,0 +1,141 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Times, "Times New Roman", serif;
+    font-size: 20px;
+	line-height: 1.6;
+}
+
+a {
+  color: #E21B4D;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #FFD300;
+}
+
+
+/* HEADER */
+.site-header {
+	background-color: #4F649C;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px 40px;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.site-logo {
+  height: 56px;
+}
+
+.site-nav a {
+  margin: 0 15px;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #FFD300;
+  transition: color 0.3s ease;
+}
+
+.site-nav a:hover {
+  color: #E21B4D;
+}
+
+/* MAIN CONTENT */
+.lead-display {
+  position: relative;
+  max-width: 100%;
+  height: 550px; /* Set a fixed height for the banner */
+  overflow: hidden;
+}
+
+.lead-display img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Makes the image cover the container like a banner */
+  display: block;
+}
+
+.primary-statement {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2em;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  width: 80%;
+  max-width: 800px;
+}
+
+.secondary-statement {
+  font-size: 1.3em;
+  color: #E21B4D;
+  margin-bottom: 30px;
+}
+
+/* SHOWCASE SECTION */
+.showcase {
+  background-color: #D9D4CE;
+  padding: 60px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.showcase h2 {
+  width: 100%;
+  text-align: center;
+  color: #000B8D;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.showcase-item {
+  background-color: #F4EBEE;
+  border: 2px solid #000B8D;
+  border-radius: 12px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 11, 141, 0.15);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.showcase-item:hover {
+  transform: translateY(-5px);
+}
+
+.showcase-item h3 {
+  color: #E21B4D;
+  font-size: 1.4rem;
+}
+.showcase-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin: 15px 0;
+}
+
+.showcase-item p {
+  color: #1D19AC;
+}
+
+/* FOOTER */
+footer {
+	background-color: #4965A0;
+	color: #FFD300;
+	text-align: center;
+	padding: 3px 10px;
+	font-size: 10px;
+	width: 100%;
+}
