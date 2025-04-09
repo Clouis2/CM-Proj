@@ -1,14 +1,42 @@
 @charset "UTF-8";
-/* CSS Document */
 
-body{
-    margin: 0;
-    padding: 0;
-    font-family: Times, "Times New Roman", serif;
-    font-size: 20px;
-	line-height: 1.6;
+html, body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+body {
+	background: linear-gradient(to bottom, #ffffff, #e0f2ff);
+	color: #1a1a1a;
+	font-family: 'Lato', sans-serif;
 }
 
+/* WRAPPER (for centering inner content) */
+.wrapper {
+	max-width: 100%;
+	margin: 0 auto;
+	padding:0;
+	line-height: 1.5;
+}
+.body-sec{
+	background-color: rgba(255, 255, 255, 0.85); /* Slight transparency for a frosty look */
+	padding: 40px 30px;
+	margin-bottom: 30px auto;/* Centers the section on the page */
+	border-radius: 12px; /* Rounded corners to soften the design */
+	max-width: 1400px; /* Ensures the content doesn't stretch too wide */
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+}
+.body-sec h2{
+	font-size: 2rem;
+}
+.body-sec p {
+	color: #003366; /* Deep icy blue */
+	font-size: 22px; 
+	margin-bottom: 20px;
+	line-height: 1.7em;
+}
+
+/* LINKS */
 a {
   color: #E21B4D;
   text-decoration: none;
@@ -18,16 +46,15 @@ a:hover {
   color: #FFD300;
 }
 
-
 /* HEADER */
 .site-header {
-	background-color: #4F649C;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 10px 40px;
-	flex-wrap: wrap;
-	width: 100%;
+  background-color: #4F649C;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+  flex-wrap: wrap;
+  max-width: 1400px;
 }
 
 .site-logo {
@@ -46,18 +73,18 @@ a:hover {
   color: #E21B4D;
 }
 
-/* MAIN CONTENT */
+/* LEAD DISPLAY / HERO IMAGE */
 .lead-display {
   position: relative;
-  max-width: 100%;
-  height: 550px; /* Set a fixed height for the banner */
+  width: 100%;
+  height: 550px;
   overflow: hidden;
 }
 
 .lead-display img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Makes the image cover the container like a banner */
+  object-fit: cover;
   display: block;
 }
 
@@ -66,13 +93,13 @@ a:hover {
   top: 15%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
-  font-size: 2em;
+  color:lightcyan;
+  font-size: 3em;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
   width: 80%;
-  max-width: 800px;
+  max-width: 900px;
 }
 
 .secondary-statement {
@@ -83,12 +110,11 @@ a:hover {
 
 /* SHOWCASE SECTION */
 .showcase {
-  background-color: #D9D4CE;
-  padding: 60px 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+	padding: 60px 20px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 30px;
 }
 
 .showcase h2 {
@@ -96,7 +122,7 @@ a:hover {
   text-align: center;
   color: #000B8D;
   font-size: 2rem;
-  margin-bottom: 40px;
+  margin-bottom: 14px;
 }
 
 .showcase-item {
@@ -105,7 +131,7 @@ a:hover {
   border-radius: 12px;
   padding: 20px;
   width: 300px;
-  box-shadow: 0 4px 8px rgba(0, 11, 141, 0.15);
+  box-shadow: 0 4px 8px rgba(0, 11, 141, 0.5);
   transition: transform 0.3s ease;
   text-align: center;
 }
@@ -135,7 +161,7 @@ footer {
 	background-color: #4965A0;
 	color: #FFD300;
 	text-align: center;
-	padding: 3px 10px;
+	padding: 10px 20px;
 	font-size: 10px;
-	width: 100%;
+	max-width: 100%;
 }
