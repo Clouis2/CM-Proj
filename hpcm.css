@@ -172,3 +172,12 @@ footer {
 	font-size: 10px;
 	max-width: 100%;
 }
+ .footer-links a {
+    margin: 0 12px;
+    text-decoration: none;
+    color: gold;
+    transition: color 0.3s;
+  }
+.footer-links a:hover {
+    color: red;
+  }
