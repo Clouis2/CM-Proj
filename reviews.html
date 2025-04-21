@@ -29,7 +29,9 @@
       "main main main"
       "footer footer footer";
   }
-
+		.page-header{
+			text-align: center;
+		}
   .article-review-grid {
     display: grid;
     gap: 0.5em;
@@ -187,27 +189,68 @@
   color: #ffce00;
 }
 
-  /* === Snowflake Animation === */
   .snowflake {
-    position: absolute;
-    animation: fall 10s linear infinite;
-    opacity: 0.2;
-    color: #fff;
-    font-size: 1.2em;
-  }
+	  position: absolute;
+	  top: -5%;
+	  color: #fff;
+	  font-size: 1em;
+	  opacity: 0.5;
+	  animation: fall linear infinite;
+	  pointer-events: none;
+	}
 
-  @keyframes fall {
-    0% {
-      top: -10%;
-      left: 50%;
-      transform: rotate(0deg);
-    }
-    100% {
-      top: 100%;
-      left: 55%;
-      transform: rotate(360deg);
-    }
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
   }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+
+/* Randomness per snowflake */
+.snowflake:nth-child(1) {
+  left: 10%;
+  font-size: 1.2em;
+  animation-duration: 12s;
+  animation-delay: 0s;
+}
+.snowflake:nth-child(2) {
+  left: 20%;
+  font-size: 1.5em;
+  animation-duration: 8s;
+  animation-delay: 2s;
+}
+.snowflake:nth-child(3) {
+  left: 35%;
+  font-size: 1em;
+  animation-duration: 10s;
+  animation-delay: 4s;
+}
+.snowflake:nth-child(4) {
+  left: 50%;
+  font-size: 1.3em;
+  animation-duration: 9s;
+  animation-delay: 1s;
+}
+.snowflake:nth-child(5) {
+  left: 65%;
+  font-size: 0.9em;
+  animation-duration: 11s;
+  animation-delay: 3s;
+}
+.snowflake:nth-child(6) {
+  left: 80%;
+  font-size: 1.4em;
+  animation-duration: 13s;
+  animation-delay: 0.5s;
+}
+.snowflake:nth-child(7) {
+  left: 90%;
+  font-size: 1em;
+  animation-duration: 10s;
+  animation-delay: 1.5s;
+}
 </style>
 </head>
 
@@ -225,6 +268,15 @@
 			<a href="about.html">About</a>		   	   
         </nav>
       </header>
+				
+		<div class="snowflake">❄</div>
+		<div class="snowflake">❄</div>
+		<div class="snowflake">❄</div>
+		<div class="snowflake">❄</div>
+		<div class="snowflake">❄</div>
+		<div class="snowflake">❄</div>
+		<div class="snowflake">❄</div>
+		
 		
 		<main>
 			<header class= "page-header">
@@ -235,7 +287,7 @@
 				<header class="review-header">
 					<p class="article-label">Experienced Review</p>
 					<h1>Saftey is key, but Fun is mandatory!</h1>
-					<p>By <a href="#corylouis">Cory Louis </a> | <time datetime="2025-01-02">January 3, 2025</time></p>
+					<p>By <a href="https://www.linkedin.com/in/coreylj/">Cory Louis </a> | <time datetime="2025-01-02">January 3, 2025</time></p>
 					</header>
 				<figure class="review-lead"><img src="images/parkarea.jpg" alt="Lead image"></figure>
 				<aside class="review-aside">
@@ -249,7 +301,7 @@
 					
 					<figure><img src="images/parksign1.jpg" alt="Park area"></figure>
 					
-					<p>Another snowboarder told me that the only way to kill nerves and hesitation is to “Just send it, bro!” And so I did, and I landed a few attempts, and I was hype, but of course, a different jump that was steeper humbled me. It was all part of the learning process. The adrenaline rush, the  <a href="#">camaraderie</a> with other riders, and the thrill of trying something new made every wipeout worth it. Overall, it was a very trial-and-error experience, but still a 10/10, I would recommend.</p>
+					<p>Another snowboarder told me that the only way to kill nerves and hesitation is to “Just send it, bro!” And so I did, and I landed a few attempts, and I was hype, but of course, a different jump that was steeper humbled me. It was all part of the learning process. The adrenaline rush, the camaraderie with other riders, and the thrill of trying something new made every wipeout worth it. Overall, it was a very trial-and-error experience, but still a 10/10, I would recommend.</p>
 					
 					
 					<footer class="review-footer">
