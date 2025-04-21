@@ -1,0 +1,383 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Review</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<i class="fas fa-snowflake snowflake"></i> 
+	<link rel="stylesheet" href="hpcm.css" type="text/css">
+	<style>
+  /* === Base Styles === */
+  body {
+    font-family: 'Montserrat', sans-serif;
+    color: #222;
+    background: #f4f7fb;
+    line-height: 1.6;
+  }
+
+  h1, h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #00334e;
+	 
+  }
+
+  /* === Layout Grids === */
+  .wrapper-grid {
+    grid-template-areas:
+      "header header header"
+      "main main main"
+      "footer footer footer";
+  }
+		.page-header{
+			text-align: center;
+		}
+  .article-review-grid {
+    display: grid;
+    gap: 0.5em;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto;
+    grid-template-areas:
+      "revh revh revh"
+      "revl revl revl"
+      "reva reva reva"
+      "revb revb ."
+      "revf revf revf";
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    padding: 1em;
+    margin-bottom: 2em;
+  }
+
+  #rev2 {
+    grid-template-areas:
+      "revh revh revh"
+      "revl revl revl"
+      "revb revb reva"
+      "revb revb ."
+      "revf revf revm";
+  }
+	#rev1 {
+	grid-template-areas:
+      "revh revh revh"
+      "revl revl revl"
+      "revb revb reva"
+      "revb revb ."
+      "revf revf revm";
+  }
+
+  #rev-mini {
+    grid-area: revm;
+    gap: 0.1em;
+    grid-template-rows: 24px 32px 24px 32px 24px;
+    grid-template-areas:
+      "revh revh revh"
+      "revl revl revl"
+      "reva reva reva"
+      "revb revb revb"
+      "revf revf revf";
+    line-height: 1em;
+  }
+
+  /* === Section Areas === */
+  .review-header {
+    grid-area: revh;
+    background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
+    color: white;
+    padding: 1em;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .review-lead {
+    grid-area: revl;
+    background: #D6DAFF;
+  }
+
+  .review-aside {
+    grid-area: reva;
+    background: #e0f2f1;
+    padding: 0.5em;
+    border-left: 4px solid #00b4d8;
+    font-style: italic;
+  }
+
+  .review-body {
+    grid-area: revb;
+    background: #f7fcfd;
+    padding: 1em;
+  }
+
+  .review-footer {
+    grid-area: revf;
+    padding: 1em;
+	background: #00AFD9;
+	font-size: 14px;
+    border-radius: 0 0 8px 8px;
+  }
+
+
+  /* === Image Styling === */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+  }
+
+  .review-lead img {
+    width: 90%;
+    margin: 0 auto;
+    max-height: 300px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .review-body figure img {
+    width: 90%;
+    max-height: 250px;
+    margin: 1em auto;
+    object-fit: contain;
+  }
+
+  figure.review-lead,
+  .review-body figure {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* === Link Hover Effect === */
+  .review-body a:hover {
+    background: linear-gradient(90deg, #00b4d8 0%, #0077b6 100%);
+    color: white;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+  }
+		/* === Star Rating System === */
+.star-rating {
+  display: inline-block;
+  direction: rtl;
+  font-size: 1.6em;
+  unicode-bidi: bidi-override;
+  user-select: none;
+  margin-top: 0.5em;
+}
+
+.star-rating input {
+  display: none;
+}
+
+.star-rating label {
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: gold;
+}
+
+.star-rating input:checked ~ label {
+  color: gold;
+}
+
+.star-rating input:checked + label:hover,
+.star-rating input:checked + label:hover ~ label {
+  color: #ffce00;
+}
+
+  .snowflake {
+	  position: absolute;
+	  top: -5%;
+	  color: #fff;
+	  font-size: 1em;
+	  opacity: 0.5;
+	  animation: fall linear infinite;
+	  pointer-events: none;
+	}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+
+/* Randomness per snowflake */
+.snowflake:nth-child(1) {
+  left: 10%;
+  font-size: 1.2em;
+  animation-duration: 12s;
+  animation-delay: 0s;
+}
+.snowflake:nth-child(2) {
+  left: 20%;
+  font-size: 1.5em;
+  animation-duration: 8s;
+  animation-delay: 2s;
+}
+.snowflake:nth-child(3) {
+  left: 35%;
+  font-size: 1em;
+  animation-duration: 10s;
+  animation-delay: 4s;
+}
+.snowflake:nth-child(4) {
+  left: 50%;
+  font-size: 1.3em;
+  animation-duration: 9s;
+  animation-delay: 1s;
+}
+.snowflake:nth-child(5) {
+  left: 65%;
+  font-size: 0.9em;
+  animation-duration: 11s;
+  animation-delay: 3s;
+}
+.snowflake:nth-child(6) {
+  left: 80%;
+  font-size: 1.4em;
+  animation-duration: 13s;
+  animation-delay: 0.5s;
+}
+.snowflake:nth-child(7) {
+  left: 90%;
+  font-size: 1em;
+  animation-duration: 10s;
+  animation-delay: 1.5s;
+}
+</style>
+</head>
+
+<body>
+	<div class= "wrapper wrapper-grid">
+	<header class="site-header">
+        <a href="home.html">
+		   <img class="site-logo" src="cm-logo2.1.svg" alt="Cold Menace logo">
+		</a>
+        <nav class="site-nav">
+			<a href="home.html">Home</a> 
+			<a href="gallery.html">Gallery</a>
+			<a href="reviews.html">Reviews</a>
+			<a href="extra.html">Tutorials(TBA)</a><!-- tuts or maps -->
+			<a href="about-cm.html">About</a>		   	   
+        </nav>
+      </header>
+				
+		<div class="snowflake">❄</div>
+		<div class="snowflake">❄</div>
+		<div class="snowflake">❄</div>
+		<div class="snowflake">❄</div>
+		<div class="snowflake">❄</div>
+		<div class="snowflake">❄</div>
+		<div class="snowflake">❄</div>
+		
+		
+		<main>
+			<header class= "page-header">
+				<h1>Echoes of a Rider </h1>
+				
+			</header>
+			<article id="rev1" class="article-review article-review-grid">
+				<header class="review-header">
+					<p class="article-label">Experienced Review</p>
+					<h1>Saftey is key, but Fun is mandatory!</h1>
+					<p>By <a href="https://www.linkedin.com/in/coreylj/">Cory Louis </a> | <time datetime="2025-01-02">January 3, 2025</time></p>
+					</header>
+				<figure class="review-lead"><img src="images/parkarea.jpg" alt="Lead image"></figure>
+				<aside class="review-aside">
+					<p>Cory Louis, <cite>Cold Menace</cite>.<br>Mt. Creek Vernon NJ, 2025. $$$</p>
+				</aside>
+				<div class="review-body">
+					<p>So, the location was  <a href="https://mountaincreek.com/skiing-riding/tickets-passes/day-tickets/">Mountain Creek</a> in Vernon, NJ, where my friends and I began our epic journey to conquer some jumps. My friends and I rode the lift up to about 1,400 ft, which is a bit shocking to hear, but trust me, it’s not as bad as it sounds. The ride up was blissful, and all you could see were other boarders and skiers gracefully sliding down the mountain. The sun reflected off the snow, making everything look almost surreal, like something out of a winter sports documentary. As I came off the lift, I slid down with one foot in front of the other, not strapped in yet to the flat area. To my surprise, there were a considerable number of boarders and skiers all getting ready to strap in and take on some jumps and ride some rails. The atmosphere was energetic, with music playing from nearby speakers, adding to the overall excitement of the park. The signs in the park area were easy to read and motivational: “Start small, then work your way up” and <a href="https://mountaincreek.com/terrain-park/"> Park Smart!</a> Even though you are on a mountain, there are many user-friendly guide maps posted at various intervals on the trails to keep riders from getting lost or unintentionally ending up on a difficult trail (black diamonds).</p>
+					
+					<p>As an intermediate snowboarder, I followed through because when I initially rode down, inspecting different jumps and rails, it gave me a sense of what I should attempt and what to avoid for now. One thing you must always consider is your surroundings, and I say this with emphasis because there are a ton of riders of all age ranges and experience levels, and getting familiar with the setting is essential. I do this especially to prevent injury and avoid traffic. There are a decent amount of hills, rails, pipes, and jumps (aka features) that looked intimidating, but nevertheless, as I tried some and got comfortable, it was very fun, exciting, and nerve-racking. Most of the jumps I tried ended up with me not sticking the landing for the most part, but for some reason, the rails felt easier. Maybe it was the smooth, controlled feeling of sliding on a rail compared to the unpredictable landing of a jump.</p> 
+					
+					
+					<figure><img src="images/parksign1.jpg" alt="Park area"></figure>
+					
+					<p>Another snowboarder told me that the only way to kill nerves and hesitation is to “Just send it, bro!” And so I did, and I landed a few attempts, and I was hype, but of course, a different jump that was steeper humbled me. It was all part of the learning process. The adrenaline rush, the camaraderie with other riders, and the thrill of trying something new made every wipeout worth it. Overall, it was a very trial-and-error experience, but still a 10/10, I would recommend.</p>
+					
+					
+					<footer class="review-footer">
+						<p>Posted at Cold Menace | Leave a comment...</p>
+						<p><strong>Rate Review:</strong></p>
+						<div class="star-rating">
+							<input type="radio" id="star5-1" name="rating1" value="5">
+							<label for="star5-1" title="5 stars">★</label>
+							
+							<input type="radio" id="star4-1" name="rating1" value="4">
+							<label for="star4-1" title="4 stars">★</label>
+							
+							<input type="radio" id="star3-1" name="rating1" value="3">
+							<label for="star3-1" title="3 stars">★</label>
+							
+							<input type="radio" id="star2-1" name="rating1" value="2">
+							<label for="star2-1" title="2 stars">★</label>
+							
+							<input type="radio" id="star1-1" name="rating1" value="1">
+							<label for="star1-1" title="1 star">★</label>						
+							</div>
+							<p>Tags: mountain creek, NJ, pictures</p>
+					</footer>
+				</article>
+				
+				<article id="rev2" class="article-review article-review-grid">
+				<header class="review-header">
+					<p class="article-label">Product Review</p>
+					<h1>Well, to be Fawk! </h1>
+					<p>By <a href="#Xander Quinn">Xander Quinn </a> | <time datetime="2022-09-28">September 28, 2022</time></p>
+					</header>
+				<figure class="review-lead"><img src="images/bib.jpg" alt="Lead image"></figure>
+				<aside class="review-aside">
+					<p>Xander Quinn, <cite>Cold Menace</cite>.<br>coldmenace.com, 2023. $$$</p>
+				</aside>
+				<div class="review-body">
+					<p>From beginner to beginner I was ill-equipped with just a pair of water-resistant pants for snowy, wet conditions. They were fine in the morning, but they got completely soaked midway through, making the rest of the day and rides sort of uncomfortable. After that experience, I decided to do some research and invest in a quality bib, which are dedicated snowboarding pants. It was not cheap by any means, but the reviews were promising, so I decided to purchase it. All I can say is that it definitely held up to its hype. From the very first run, I could tell the difference, I felt lighter, warmer, and more secure this time. I went snowboarding with a few friends, and I was dry from when I started to when the lifts closed, and that says a lot. The lightweight material offered excellent mobility, allowing me to carve and maneuver with ease. Even after hours on the slopes, I never felt restricted or uncomfortable. The pair that I chose to buy was called  <a href="https://www.montecwear.com/fawk-ski-pants-men-light-grey-black-cobalt-blue">Fawk</a> in the color variation of white, black, and cobalt blue from the company Montec, which specializes in snow gear. They are well-insulated and have a unique design that makes them stand out from others. You can either get them heavily insulated or in shell form, which allows you to layer up. It basically gives you the option to tailor your buy to your individual needs.</p>
+					
+					<p>The pants are very useful and I like them a lot. However, after about two seasons, though, I noticed some literal wear and tear. The bottom of the left leg ripped, which was disappointing, given the price. Despite that, the bib remained functional, though it made me question long-term durability. I’d rate this bib as 8.5 out of 10; not bad, but for the price, I expected it to last longer. If it only holds up for two or three seasons, replacing it could get expensive. Even so, I do intend to wear these snowboarding pants until they are unwearable or have reached their absolute end of use. While the design and performance are great, I might explore other options to find something with better longevity when the time comes. But for now, this is just my subjective opinion, from my experience.</p>
+					
+					<figure><img src="images/selfie.jpg" alt="Xanders' Selfie"></figure>
+					<p>That being said, I do appreciate the small details that  <a href="https://www.montecwear.com/">Montec</a> incorporated into the design, like the reinforced zippers, adjustable straps, and waterproof pockets. Those features made a big difference in keeping my essentials dry and secure while riding. If they could improve the durability of the material, I’d have no complaints. Perhaps in the future, I’ll try a different brand like  <a href="https://www.burton.com/us/en/home?g_adtype=search&g_type=discovery&&g_acctid=208-000-6041&g_campaign=Burton%20Brand%20(US)&g_campaignid=401065087&g_adgroupid=162035663278&g_adid=696840357249&g_keyword=burton&g_keywordid=kwd-15036720&g_network=g&gad_source=1&gbraid=0AAAAAD-wwzGck-AytyWBjV14qJ7Y6ihn-&gclid=Cj0KCQjwzYLABhD4ARIsALySuCSryaXVTrt8DMAXsKX2qB2be1e632XCjKJZT0b2YzmSsJNPfxhWXHMaAttaEALw_wcB&gclsrc=aw.ds">Burton</a> or  <a href="https://www.volcom.com/pages/snow?srsltid=AfmBOoou_k_RmTCEOmDWYmM-4MK-gfxFDoVyutg9CRxirTrUuKqxgXxP">Volcom</a> to compare, but for now, I’ll stick with what I have until it’s time for a replacement. </p>
+					
+					
+					<footer class="review-footer">
+						<p>Posted at Cold Menace | Leave a comment...</p>
+						<p><strong>Rate Review:</strong></p>
+						<div class="star-rating">
+							<input type="radio" id="star5-2" name="rating2" value="5">
+							<label for="star5-2" title="5 stars">★</label>
+							
+							<input type="radio" id="star4-2" name="rating2" value="4">
+							<label for="star4-2" title="4 stars">★</label>
+							
+							<input type="radio" id="star3-2" name="rating2" value="3">
+							<label for="star3-2" title="3 stars">★</label>
+							
+							<input type="radio" id="star2-2" name="rating2" value="2">
+							<label for="star2-2" title="2 stars">★</label>
+							
+							<input type="radio" id="star1-2" name="rating2" value="1">
+							<label for="star1-2" title="1 star">★</label>
+						</div>
+							<p>Tags: snowboarding, gear, montec, pants</p>
+					</footer>
+			</article>
+	</main>
+	<footer>
+		<p>Copyright &copy;  2025 Cold Menace - All rights reserved.</p>
+		<div class="footer-links">
+			<a href="">Github</a>
+			<a href="">Terms of Service</a>
+			<a href="">Privacy</a>
+		</div>
+	</footer>
+	</div>
+</body>
+</html>
