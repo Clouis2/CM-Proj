@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Map-NJ/PA</title>
+	<script src="https://kit.fontawesome.com/7a42cecb45.js" crossorigin="anonymous"></script>
+</head>
+
+	<style>
+
+		.mcmap{
+			width:900px;
+			border:solid #5a5a5a 1px;
+			background: url(images.mcmap.jpeg) no-repeat;
+			background-size: 900px 800px;
+			padding: 0;
+			margin: 0;
+			position: relative;/* For Icons*/
+		}
+		
+		.map-container{ 
+			width: 600px;
+			height: 600px;
+			border: solid #5a5a5a 1px;
+			overflow: scroll;
+			margin: 0; /* adjust as needed */
+		}
+		.cmap-item {
+			height: 24px;
+			position: absolute;
+		}
+		
+		/*Pennsylvania Ski spots*/
+		#cmap-item-bearcreek {
+			top: 440px;
+			left: 482px;
+			}
+		#cmap-item-bluemt {
+			top: 409px;
+			left: 462px;
+			}
+		#cmap-item-camelback {
+			top: 380px;
+			left: 486px;
+			}
+		#cmap-item-elkmt {
+			top: 303px;
+			left: 430px;
+			}
+		#cmap-item-libmt {
+			top: 551px;
+			left: 360px;
+			}
+		#cmap-item-sevensprings {
+			top: 576px;
+			left: 170px;
+			}
+		
+		/*NJ ski spots*/
+		#cmap-item-mtcreek{
+			top: 330px;
+			left: 310px;
+		}
+		#cmap-item-campgraw {
+			top: 380px;
+			left: 650px;
+		}
+		#cmap-item-bigsnow {
+			top: 440px;
+			left: 660px;
+		}
+	
+	</style>
+<body>
+	
+	
+	
+	<h1>Mountains in Pennsivannia </h1>
+	<h2>Where to go</h2>
+	
+	<div class="map-container">
+	<div class="cmap">
+	<img src="images/usa-pa.svg" alt="Map of PA">
+		<a href="#Bear-Creek">
+		<i class="fa-solid fa-mountain cmap-item" id="cmap-item-bearcreek" style="color: #E21B4D;"> <span>Bear Creek</span></i>
+		</a>
+		<a href="#Camelback">
+		<i class="fa-solid fa-mountain cmap-item" id="cmap-item-camelback" style="color: #E21B4D;"> <span>Camelback</span></i>
+		</a>
+		<a href="#BlueMt">
+		<i class="fa-solid fa-mountain cmap-item" id="cmap-item-bluemt" style="color: #E21B4D;"> <span>Blue Mt.</span></i>
+		</a>
+		<a href="#Seven-Springs">
+		<i class="fa-solid fa-mountain cmap-item" id="cmap-item-sevensprings" style="color: #E21B4D;"> <span>Seven Springs</span></i>
+		</a>
+		<a href="#ElkMt">
+		<i class="fa-solid fa-mountain cmap-item" id="cmap-item-elkmt" style="color: #E21B4D;"> <span>Elk Mt.</span></i>
+		</a>
+		<a href="#LibertyMt">
+		<i class="fa-solid fa-mountain cmap-item" id="cmap-item-libmt" style="color: #E21B4D;"> <span>Liberty Mt.</span></i>
+		</a>
+	</div>
+</div>
+	
+	
+	<h1>Mountains in New Jersey </h1>
+	<h2>Where to go</h2>
+	
+	<div class="map-container">
+	<div class="mcmap">
+	<img src="images/usa-nj.svg" alt="Map of NJ">
+		<a href="#Mt-Creek">
+		<i class="fa-solid fa-mountain cmap-item" id="cmap-item-mtcreek" style="color: #E21B4D;"> <span>Mountain Creek</span></i>
+		</a>
+		<a href="#Campgraw">
+		<i class="fa-solid fa-mountain cmap-item" id="cmap-item-campgraw" style="color: #E21B4D;"> <span>Campgraw Mt.</span></i>
+		</a>
+		<a href="#Big-snow">
+		<i class="fa-solid fa-mountain cmap-item" id="cmap-item-bigsnow" style="color: #E21B4D;"> <span>Big Snow</span></i>
+		</a>
+	</div>
+</div>
+	 
+	<footer>
+    <p>© 2025 Cold Menace - All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#">Github</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Privacy</a>
+    </div>
+  </footer>
+</body>
+</html>
