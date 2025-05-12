@@ -1,0 +1,51 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000B8D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.map-container {
+  width: 90vw;
+  height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(0, 11, 141, 0.5);
+  overflow: hidden;
+  border: 3px solid #FFD300;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+/* Leaflet popup customization */
+.leaflet-popup-content-wrapper {
+  background: #D7DAFF;
+  color: #000B8D;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 11, 141, 0.5);
+  font-size: 14px;
+}
+
+.leaflet-popup-tip {
+  background: #D7DAFF;
+}
+
+/* Custom Marker Styling (optional with JS logic) */
+.custom-marker {
+  background-color: #E21B4D;
+  border: 2px solid #FFD300;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: block;
+  box-shadow: 0 0 10px rgba(226, 27, 77, 0.6);
+}
+

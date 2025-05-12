@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Cold Menace - Home</title>
+	<script src="https://kit.fontawesome.com/7a42cecb45.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="hpcm.css" type="text/css">
+  </head>
+  <body>
+    <main class="wrapper">
+	
+      <header class="site-header">
+        <a href="home.html">
+		   	<img class="site-logo" src="cm-logo2.1.svg" alt="Cold Menace logo">
+		</a>
+        <nav class="site-nav">
+			<a href="home.html" title="Home"><i class="fa-solid fa-house"></i></a>
+			<a href="gallery.html" title="Gallery"><i class="fa-solid fa-camera-retro"></i></a>
+			<a href="reviews.html" title="Reviews"><i class="fa-solid fa-star-half-stroke"></i></a>
+			<a href="exploremap.html" title="Explore-Map"><i class="fa-solid fa-map-location-dot"></i></a>
+			<a href="vision-lore.html" title="Vision"><i class="fa-regular fa-snowflake"></i></a>
+			<a href="about-cm.html" title="About"><i class="fa-solid fa-circle-question"></i></a>
+			
+        </nav>
+		  
+		  <div class="search-bar">
+			  <input type="text" placeholder="Search . . .">
+		  </div>
+      </header>
+    
+	  <main>
+        <section class="lead">
+			<div class="slideshow-container">
+				
+				<div class="slide fade">
+					<img src="images/horizonline.jpg" alt="Big Picture.">
+				</div>
+				
+				<div class="slide fade">
+					<img src="images/resort.jpg" alt="Another mountain view">
+				</div>
+				
+				<div class="slide fade">
+					<img src="images/viewjj.jpg" alt="Snowboarder in action">
+				</div>
+				
+				<h1 class="primary-statement">Shred Powder like a Pro, on your terms . . .</h1>
+			</div>
+		</section>
+		  
+			<div class="lead-sec">
+			<h2 class="secondary-statement">So when the mountains call, you can answer!  </h2> <!-- visual lead -->
+
+			<p>Well, not yet but for this adventure, we’re gearing up for the powdery paths ahead! This site is your personal guide to snowboarding as a beginner—what gear you’ll need, which trails are the best for getting started, and what to expect when you hit the slopes for the first time. We’ll walk you through what we wish we'd had known, share some tips and lessons from our own journey, and help you make the most of every ride. So let’s climb this mountain together, learn the ropes, and carve our way through some unforgettable trails!”</p>
+			
+			<p>You don’t have to be a pro to ride like one—you just need the right knowledge and the right trail. On this site, you’ll find beginner-friendly resorts across New Jersey and Pennsylvania, complete with maps and recommendations based on my own rides. We’ll break down the must-have gear (with real pics and insights), dive into how to stay safe and confident on your board, and even explore which mountains offer lessons, rentals, and beginner zones. Whether you’re still thinking about trying snowboarding or already lacing up your boots, there’s something here to help you ride smarter and have more fun.</p>
+			<p>Maybe you could be the next <a href="https://www.redbull.com/us-en/athlete/zeb-powell">Zeb Powell</a> or <a href="https://www.teamusa.com/profiles/shaun-white">Shawn White</a>, but who knows .  .  . </p>
+				
+		  </div>
+		  
+
+		<section class="showcase">
+
+			<h2>The Guide</h2>
+
+			<div class="showcase-item" id="showcase-item-1">
+
+				<h3>What You'll Need (Gear)</h3>
+
+				<!-- image -->
+
+				<a href=""><img src="images/gear.jpg" alt="Preview image (not a screenshot)"></a>
+
+			  <p>Here you can find a list of essentials for your adventure, with great recommendations. </p>
+
+				<p><a href="gallery.html#gear-essentials">Take a look...</a></p><!-- the link can also be incorporated into the paragraph of enhancing text above -->
+
+			</div><!-- showcase item ends-->
+
+			
+			<div class="showcase-item" id="showcase-item-2">
+
+				<h3>Where to ride</h3>
+
+				<!-- page preview image -->
+
+				<a href=""><img src="images/view.jpg" alt="Representative preview image (not a screenshot)"></a>
+
+				<p>We want to have fun not injure ourselves, so here are some Resorts, Trail highlights, Maps and more!</p>
+
+				<p><a href="statemap.html">Lets Explore...</a></p><!-- the link can also be incorporated into the paragraph of enhancing text above -->
+
+			</div><!-- showcase item ends-->
+
+			<div class="showcase-item" id="showcase-item-3">
+
+				<h3>Things I wish I knew (Tips)</h3>
+
+				<!-- page preview image -->
+
+				<a href=""><img src="images/zeb.jpg" alt="Representative preview image (not a screenshot)"></a>
+
+				<p>Check out real stories from fellow beginners and what it felt like taking on their first mountain ride. </p>
+				<p><a href="reviews.html">Read More...</a></p><!-- the link can also be incorporated into the paragraph of enhancing text above -->
+
+			</div><!-- showcase item ends-->
+
+		</section><!-- showcase ends -->
+
+      </main>
+	  <p class="return"><a href="#">Back to Top  <i class="fa-solid fa-up-long"></i></a></p>
+      <footer>
+		  <p>Copyright &copy;  2025 Cold Menace - All rights reserved.</p>
+			  <div class="footer-links">
+				  <a href="https://github.com/Clouis2">Github</a>
+				  <a href="">Terms of Service</a>
+				  <a href="">Privacy</a>
+		  </div>
+	  </footer>
+    
+	</main> <!-- wrapper ends -->
+	  
+	  <script>
+		  document.addEventListener("DOMContentLoaded", () => {
+			  const snowflakeCount = 40; // number of snowflakes
+			  for (let i = 0; i < snowflakeCount; i++) {
+				  const snowflake = document.createElement("div");
+				  snowflake.className = "snowflake";
+				  snowflake.textContent = "❄";
+				  snowflake.style.left = Math.random() * 100 + "vw";
+				  snowflake.style.animationDuration = 5 + Math.random() * 5 + "s";
+				  snowflake.style.fontSize = 10 + Math.random() * 20 + "px";
+				  snowflake.style.opacity = Math.random().toFixed(2);
+				  document.body.appendChild(snowflake);
+			  }});
+		  
+		  let slideIndex = 0;
+		  function showSlides() {
+			  const slides = document.querySelectorAll(".slide");
+			  slides.forEach(slide => slide.style.display = "none");
+			  slideIndex++;
+			  if (slideIndex > slides.length) slideIndex = 1;
+			  slides[slideIndex - 1].style.display = "block";
+			  setTimeout(showSlides, 9000); // 9 seconds
+		  }
+		  document.addEventListener("DOMContentLoaded", showSlides);
+	  </script>
+  </body>
+</html>

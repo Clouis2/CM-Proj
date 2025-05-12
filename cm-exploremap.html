@@ -1,0 +1,371 @@
+<!doctype html>
+<html><head>
+  <meta charset="UTF-8">
+  <title>Map-NJ/PA</title>
+  <script src="https://kit.fontawesome.com/7a42cecb45.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="hpcm.css">
+	
+  <style>
+	  h1 {
+		  font-size: 2.5rem;
+		  font-weight: bold;
+		  color: white;
+		  background: #E21B4D;
+		  text-align: center;
+		  display: block;
+		  padding: 10px 2px;
+		  margin-bottom: 30px;
+		  transform: skew(-20deg);
+		  box-shadow: 0 4px 0 4px rgba(0,0,0,0.55);
+		  text-transform: uppercase;
+	  }
+	  h2 {
+		  color: #E21B4D;
+	  }
+    .map-container { 
+      width: 800px;
+      height: 400px;
+      border: solid #5a5a5a 1px;
+      overflow: scroll;
+      margin-bottom: 10px auto;
+    }
+
+    .cmap {
+      width: 900px;
+      position: relative;
+    }
+
+    .cmap img {
+      width: 100%;
+      display: block;
+    }
+
+    .cmap-item {
+      height: 24px;
+      position: absolute;
+      color: #E21B4D;
+    }
+
+    .map-list-pair {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      min-width: 400px;
+    }
+
+    .mountain-list {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    .mountain-list li {
+      margin-bottom: 5px;
+    }
+
+    .hover-sync.highlight {
+      background-color: #FFF42F;
+      border-radius: 5px;
+      padding: 2px 5px;
+      transition: background-color 0.3s;
+    }
+
+    .mountain-item {
+		cursor: pointer;
+    }
+	  html {
+		  scroll-behavior: smooth;
+	  }
+	  .side-banner {
+		  position: fixed;
+		  top: 100px;
+		  width: 120px;
+		  padding: 20px;
+		  background-color: #f1f1f1;
+		  border-radius: 10px;
+		  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+		  font-size: 14px;
+		  text-align: center;
+		  z-index: 1000;
+	  }
+	  
+	  .left-banner {
+		  left: 15px;
+		  top: 115px;
+		  text-align: center;
+		  line-height: 1.5em;
+	  }
+	  
+	  .right-banner {
+		  right: 15px;
+		  top: 115px;
+		  text-align: right;
+		  line-height: 1.5em;
+	  }
+	  
+	  .locations-grid {
+		  padding: 60px 30px;
+		  text-align: center;
+	  }
+	  
+	 .grid-container {
+		 display: grid;
+		 gap: 30px;
+		 grid-template-columns: repeat(3, 1fr); 
+		 max-width: 1200px;
+		 margin: 0 auto;
+	  }
+	  
+	  .grid-container figure {
+		  background-color: #fff;
+		  border: 2px solid #FFD300;
+		  border-radius: 12px;
+		  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+		  overflow: hidden;
+		  transition: transform 0.3s ease;
+	  }
+	  
+	  .grid-container figure:hover {
+		  transform: translateY(-5px);
+	  }
+	  
+	  .grid-container img {
+		  width: 100%;
+		  height: 180px;
+		  object-fit: cover;
+	  }
+	  .grid-container figcaption {
+		  padding: 10px;
+		  font-size: 0.9rem;
+		  color: #1D19AC;
+		  background-color: #f9f9f9;
+	  }
+
+    /* Pennsylvania Ski Spots */
+    #pa-cmap-item-bearcreek { top: 490px; left: 690px; }
+    #pa-cmap-item-bluemt { top: 439px; left: 690px; }
+    #pa-cmap-item-camelback { top: 400px; left: 716px; }
+    #pa-cmap-item-elkmt { top: 260px; left: 660px; }
+    #pa-cmap-item-libmt { top: 649px; left: 527px; }
+    #pa-cmap-item-sevensprings { top: 676px; left: 248px; }
+
+    /* NJ Ski Spots */
+    #nj-cmap-item-mtcreek { top: 330px; left: 310px; }
+    #nj-cmap-item-campgraw { top: 380px; left: 650px; }
+    #nj-cmap-item-bigsnow { top: 440px; left: 660px; }
+  </style>
+</head>
+
+<body>
+	
+  <main class="wrapper">
+	  <header class="site-header">
+        <a href="home.html">
+		   <img class="site-logo" src="cm-logo2.1.svg" alt="Cold Menace logo">
+		</a>
+        <nav class="site-nav">
+			<a href="home.html" title="Home"><i class="fa-solid fa-house"></i></a> <!-- you decide -->
+			<a href="gallery.html" title="Gallery"><i class="fa-solid fa-camera-retro"></i></a>
+			<a href="reviews.html" title="Reviews"><i class="fa-solid fa-star-half-stroke"></i></a>
+			<a href="exploremap.html" title="Explore-Map"><i class="fa-solid fa-map-location-dot"></i></a>
+			<a href="vision-lore.html" title="Vision"><i class="fa-regular fa-snowflake"></i></a>
+			<a href="about-cm.html" title="About"><i class="fa-solid fa-circle-question"></i></a>		   	   
+        </nav>
+		  
+		  <div class="search-bar">
+			  <input type="text" placeholder="Search . . .">
+		  </div>
+      </header>
+	  
+	  <!-- Left Banner -->
+<div class="side-banner left-banner">
+  <p><strong>Starter Tips</strong></p>
+	<ol>
+	<li>Dress in layers! </li>
+	<li>Take a lesson! </li>
+	<li>Falling is Normal! </li>
+	<li>Start w/ green! </li>
+	<li>Stay safe & have fun! </li>
+	</ol>
+</div>
+
+<!-- Right Banner -->
+<div class="side-banner right-banner">
+	<p><strong>Cool Links</strong></p>
+	<ol>
+		<li><a href="https://www.youtube.com/@SnowboardProCamp" target="_blank">Snowboarding Tutorials</a></li>
+		<li><a href="https://www.youtube.com/@snowboard_jesus" target="_blank">Snowboarding Jesus</a></li>
+		<li><a href="https://www.youtube.com/watch?v=I978sf9dq3Y" target="_blank">Camaraderie</a></li>
+	</ol>
+</div>
+		
+
+    <div class="maps-lists-container">
+
+  <!-- PA Map and List -->
+  <div class="map-list-pair">
+    <h1>Areas in Pennsylvania to check-out</h1>
+    <div class="map-container">
+      <div class="cmap">
+        <img src="images/usa-pa.svg" alt="Map of Pennsylvania">
+		  
+		  <a href="https://www.bcmountainresort.com/activities/ski-snowboarding/" target="_blank">
+			  <i class="fa-solid fa-mountain cmap-item hover-sync" id="pa-cmap-item-bearcreek" data-id="bearcreek" title="Bear Creek">
+			  </i>
+		  </a>
+		  
+		  <a href="https://www.camelbackresort.com/poconos-ski-resort/" target="_blank">
+			  <i class="fa-solid fa-mountain cmap-item hover-sync" id="pa-cmap-item-camelback" data-id="camelback" title="Camelback"></i>
+		  </a>
+		  
+		  <a href="https://www.skibluemt.com/winter-sports/" target="_blank">
+			  <i class="fa-solid fa-mountain cmap-item hover-sync" id="pa-cmap-item-bluemt" data-id="bluemt" title="Blue Mt."></i>
+		  </a>
+		  
+		  <a href="https://www.hiddenvalleyresort.com/" target="_blank">
+			  <i class="fa-solid fa-mountain cmap-item hover-sync" id="pa-cmap-item-sevensprings" data-id="sevensprings" title="Seven Springs"></i>
+		  </a>
+		  
+		  <a href="https://www.elkskier.com/" target="_blank">
+			  <i class="fa-solid fa-mountain cmap-item hover-sync" id="pa-cmap-item-elkmt" data-id="elkmt" title="Elk Mt."></i>
+		  </a>
+		  
+		  <a href="https://www.libertymountainresort.com/" target="_blank">
+			  <i class="fa-solid fa-mountain cmap-item hover-sync" id="pa-cmap-item-libmt" data-id="libmt" title="Liberty Mt."></i>
+		  </a>
+      </div>
+    </div>
+	   <h2><i class="fa-solid fa-mountain"> - Mountain / Resort </i></h2>
+	  <ol class="mountain-list">
+		  <li class="hover-sync" data-id="bearcreek"><a href="https://www.bcmountainresort.com/activities/ski-snowboarding/">Bear Creek</a></li>
+		  <li class="hover-sync" data-id="bluemt"><a href="https://www.skibluemt.com/winter-sports/">Blue Mountain</a></li>
+		  <li class="hover-sync" data-id="camelback"><a href="https://www.camelbackresort.com/poconos-ski-resort/">Camelback</a></li>
+		  <li class="hover-sync" data-id="elkmt"><a href="https://www.elkskier.com/">Elk Mountain</a></li>
+		  <li class="hover-sync" data-id="libmt"><a href="https://www.libertymountainresort.com/">Liberty Mountain</a></li>
+		  <li class="hover-sync" data-id="sevensprings"><a href="https://www.hiddenvalleyresort.com/">Seven Springs</a></li>
+	  </ol>
+  </div>
+
+  <!-- NJ Map and List -->
+  <div class="map-list-pair">
+    <h1>Areas in New Jersey to check-out</h1>
+    <div class="map-container">
+      <div class="cmap">
+        <img src="images/usa-nj.svg" alt="Map of New Jersey">
+		  
+		  <a href="https://mountaincreek.com/skiing-riding/tickets-passes/day-tickets/" target="_blank">
+			  <i class="fa-solid fa-mountain cmap-item hover-sync" id="nj-cmap-item-mtcreek" data-id="mtcreek" title="Mountain Creek"></i>
+		  </a>
+		  
+		  <a href="https://www.skicampgaw.com/" target="_blank">
+			  <i class="fa-solid fa-mountain cmap-item hover-sync" id="nj-cmap-item-campgraw" data-id="campgraw" title="Campgaw Mt."></i>
+		  </a>
+		  
+		  <a href="https://www.bigsnowamericandream.com/" target="_blank">
+			  <i class="fa-solid fa-mountain cmap-item hover-sync" id="nj-cmap-item-bigsnow" data-id="bigsnow" title="Big Snow"></i>
+		  </a>
+      </div>
+    </div>
+	  <ol class="mountain-list">
+		  <li class="hover-sync" data-id="mtcreek"><a href="https://mountaincreek.com/skiing-riding/tickets-passes/day-tickets/">Mountain Creek</a></li>
+		  <li class="hover-sync" data-id="campgraw"><a href="https://www.skicampgaw.com/">Campgaw Mountain</a></li>
+		  <li class="hover-sync" data-id="bigsnow"><a href="https://www.bigsnowamericandream.com/">Big Snow</a></li>
+		  
+	  </ol>
+	</div>
+		<section class="locations-grid">
+			<h1>Locations </h1>
+			<div class="grid-container">
+				
+				<figure>
+					<img src="images/mountain creek.jpg" alt="Mountain Creek">
+					<figcaption>Vernon Peak – 📸 Credits via <a href="https://mountaincreek.com/2024/11/22/dough-in-the-snow-2025/">Mountain Creek</a> Summit elevation: 1,480 ft</figcaption>
+				</figure>
+				
+				<figure>
+					<img src="images/Bear creek.jpg" alt="Bear Creek">
+					<figcaption>Bear Creek Resort – 📸 Credits via <a href="https://www.skipa.com/play/by-name/bear-creek-mountain-resort-conference-center">Ski PA</a> Summit elevation: 1,100 ft</figcaption>
+				</figure>
+				
+				<figure>
+					<img src="images/elk mountain.jpg" alt="Elk Mountain">
+					<figcaption>Elk Mountain – 📸 Credits via <a href="https://en.wikipedia.org/wiki/Elk_Hill_%28Pennsylvania%29">Wikipedia</a> Summit Elevation: 2,683 ft</figcaption>
+				</figure>
+				
+				<figure>
+					<img src="images/cammelback mountain.jpg" alt="Camelback Mountain">
+					<figcaption>Camelback – 📸 Credits via <a href="https://poconogo.com/outdoors/ski-camelback-mountain/">Pocono Go</a> Summit Elevation: 2,133 ft</figcaption>
+				</figure>
+				
+				<figure>
+					<img src="images/liberty mountain.jpg" alt="Liberty Mountain">
+					<figcaption>Liberty Mountain – 📸 Credits via <a href="https://www.skipa.com/play/by-name/liberty-mountain"></a>Summit Elevation: 1,190 ft</figcaption>
+				</figure>
+				
+				<figure>
+					<img src="images/campgaw mountain.jpg" alt="Campgaw Mountain">
+					<figcaption>Campgaw Mountain – 📸 Credits via <a href="https://www.mahwahtwp.org/facilities/facility/details/Campgaw-Mountain-Ski-Center-Snowboard-Ar-3"> Mahwah Township</a> Summit Elevation: 752 ft</figcaption>
+				</figure>
+				
+				<figure>
+					<img src="images/seven springs.jpg" alt="Seven Springs Mountain">
+					<figcaption>Seven Springs – 📸 Credits via <a href="https://www.7springs.com/the-mountain/about-the-mountain/night-skiing-and-riding.aspx">Seven Springs Resort</a> Summit Elevation: 3,001 ft</figcaption>
+				</figure>
+				
+				<figure>
+					<img src="images/blue mountain.jpg" alt="Blue Mountain">
+					<figcaption>Blue Mountain – 📸 Credits via <a href="https://discovernepa.com/listing/blue-mountain-resort/">Discover Nepa</a> Summit Elevation: 1,540 ft</figcaption>
+				</figure>
+				
+				<figure>
+					<img src="images/big snow.jpg" alt="Big Snow">
+					<figcaption>American Dream, Big Snow – 📸 Credits via <a href="https://www.telegram.com/story/sports/columns/2022/03/09/big-snow-american-dream-indoor-slope-new-jersey-awaits-re-opening-may/9435434002/">Telegram</a> Indoor Elevation: 160 ft</figcaption>
+				</figure>
+			</div>
+		</section>
+		<p class="return"><a href="#">Back to Top <i class="fa-solid fa-up-long"></i></a></p>
+	  </div>
+
+    <footer>
+      <p>© 2025 Cold Menace - All rights reserved.</p>
+      <div class="footer-links">
+        <a href="https://github.com/Clouis2">Github</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy</a>
+      </div>
+    </footer>
+  </main> <!--Wrapper ends   --!>
+
+  <!-- Hover Sync Script -->
+  <script>
+    document.querySelectorAll('.hover-sync').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        const matchId = el.getAttribute('data-id');
+        document.querySelectorAll(`.hover-sync[data-id="${matchId}"]`).forEach(match => {
+          match.classList.add('highlight');
+        });
+      });
+
+      el.addEventListener('mouseleave', () => {
+        const matchId = el.getAttribute('data-id');
+        document.querySelectorAll(`.hover-sync[data-id="${matchId}"]`).forEach(match => {
+          match.classList.remove('highlight');
+        });
+      });
+    });
+  				//Snowflakes 
+		  document.addEventListener("DOMContentLoaded", () => {
+			  const snowflakeCount = 40; // number of snowflakes
+			  for (let i = 0; i < snowflakeCount; i++) {
+				  const snowflake = document.createElement("div");
+				  snowflake.className = "snowflake";
+				  snowflake.textContent = "❄";
+				  snowflake.style.left = Math.random() * 100 + "vw";
+				  snowflake.style.animationDuration = 5 + Math.random() * 5 + "s";
+				  snowflake.style.fontSize = 10 + Math.random() * 20 + "px";
+				  snowflake.style.opacity = Math.random().toFixed(2);
+				  document.body.appendChild(snowflake);
+			  }});
+	  </script>
+</body>
+</html>
