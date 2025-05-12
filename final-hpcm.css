@@ -528,12 +528,11 @@ body {
   padding: 2em;
   max-width: 600px;
   width: 90%;
-  max-height: 80vh; /* 👈 NEW: Limit modal height */
-  overflow-y: auto;  /* 👈 NEW: Allow vertical scroll inside */
+  max-height: 80vh; /* NEW: Limit modal height */
+  overflow-y: auto;  /*  NEW: Allow vertical scroll inside */
   border-radius: 12px;
   position: relative;
   box-shadow: 0 8px 16px rgba(0, 11, 141, 0.4);
-  color: #1a1a1a;
   line-height: 1.7em;
   animation: fadeIn 0.3s ease;
 }
